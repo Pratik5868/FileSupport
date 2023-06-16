@@ -1,3 +1,17 @@
+
+<hibernate-configuration>
+	<session-factory>
+	<property name="hibernate.connection.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+	<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/cdac_assignment</property>
+	<property name="hibernate.connection.username">pratik</property>
+	<property name="hibernate.connection.password">RadheRadhe</property>
+	<property name="hibernate.connection.driver">com.mysql.cj.jdbc.Driver</property>
+	<property name="show_sql">true</property>
+	<property name="hbm2ddl.auto">update</property>
+	<mapping resource="Student.hbm.xml"/>
+	</session-factory>
+	</hibernate-configuration>
+
 <-------------------------------------------------------------------------------Hibernate configuration file dtd--------------------------------------------------------------------------->
 
 
