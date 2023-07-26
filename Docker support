@@ -16,3 +16,6 @@ apt update
 apt install openjdk-8-jre-headless
 
 javac -source 1.8 -target 1.8 Trial.java
+
+
+System.setProperty("webdriver.chrome.driver","F:\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
