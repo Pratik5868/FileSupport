@@ -1,0 +1,82 @@
+Components of AutomationEdge
+AutomationEdge Server
+AutomationEdge Agent
+AutomationEdge Process Studio:- Java based tool used to develope workflow.
+Workflow and process are two entities use to design automated solution
+workflow takes the data, process that data and saves the data to the target folder.
+Stored as XML file with .psw extension. Steps are executed parallel. Workflow gets built using steps.
+Process:- It is focused on high level control task such as executing workflow.Stored as XML file with .psp extension.
+Process gets build using entries.
+
+AutomationEdgeAgent
+- An agent is a piece of software that works on behalf of the AutomationEdge Engine and execute workflows 
+- An agent can be installed on physical or virtual machine.
+ Each physical/virtual can have one agent.
+- If in case in windows os if there are multiple users operating the same machine then each user can have one agent.
+- Multiple agents can be registered to one server
+- Agents provide scalability to AutomationEdge as Agents can be deployed on multiple machines and harness the processing power of several machine.
+- Agent is java based software which include JRE.
+
+****Steps to register AutomationEdge Agent
+1. Do agent settings to include JRE with agent.
+ Automation Edge Server UI>> Click on Agents>> Click on Agents Settings>> Edit>> on the Include JRE with Agent>> Save.
+2.Download Agent
+Automation Edge Server UI>> Click on Agents>> Click on Agents list>> currently there are no agents register>> Click on download agent>> select no proxy and platform as windows.
+3.Run Aeagent application.
+bin>>Run aeagent.exe file
+4. Check the status of aeagent on AutomationEdge server UI.
+
+
+AutomationEdge Server
+- It is AI driven intelligent RPA server where we can deploy business process solutions i.e workflows. We can do it either on premieses and on cloud.
+- We can access the server using UI by visiting the website https://t3.automationedge.com
+
+AE Deployment:-
+Publishing workflow on AE server
+- Use process Studio publish option to directly publish new workflows to AE or
+- Use process studio export option to update workflows on AE.
+steps:- 1.Publish workflow on AE server
+2. Configure the workflow on server
+3. Assign the workflow to agent
+4. Execute the wokflow from catalogue
+5. Finally see the result of execution in request page.
+
+<-------------------------1.Publish workflow on AE server------------------------>
+Step1:- Select the main process from the project
+1.Right click on the project to publish>> select edit project option>>select main process in the edit project window.>>click ok>>click ok.
+
+Step 2.Right click on the project >> select publish>>select create>> enter password of server>>
+Select Yes on Publish confirmation window>>workflow details window will appear>> enter the workflow details like name, description, category by default, version as 1 >> click on create button.
+
+step 3. Once worklow is publish then next time if changes are made then update  it:- 
+Right click on the project >> select publish>>select update>> enter password of server>>Select Yes on Publish confirmation window>>workflow details window will appear>> enter the workflow details like version as 2 >> click on update button.
+
+<-----------------------
+2. Configure the workflow on server
+3. Assign the workflow to agent
+4. Execute the wokflow from catalogue
+5. Finally see the result of execution in request page.
+------------------------->
+
+<----------------------- Status of Agent------------------------>
+1.Running:- Status is up and running and ready to execute the requests.
+2.Stopped:- Agent is turn off/shutdown
+3.Unknown:- Server is unable to reach agent
+Agent goes in this state-
+When server is not sure about state of agent due to abrupt shutdown or neytwork failure.
+In this case stop the agent using stop icon present in actions column. once agent is stopped you can start the agent again.
+4.Updating:- Agent, Workflow and Plugin related changes.
+In this state, Agent goes in this state:-
+  Older to newer version, workflow assignment, plugin assignment changes, workflow/plugin updated.
+
+<--------------------------Workflow execution states---------------->
+1.New:- Intial state in workflow execution. If new state continues for longer duration then need to check the status of Agent.
+2.Execution started:-when agent picks up the request excution started.
+3.Complete:- once the execution of workflow is completed the status occurs
+4.Failure:- Once if the error occured while the execution the status changes to failure
+If occured- Click on the plus to see the elaborated description. Then check the reason for failure and accordingly take the action. Failure workflow can be restarted.
+5.Diverted
+6.Terminated:- when manually terminated the status
+7.Expired:- Expired status applies to the request when agent fails to pick up the request.
+Expired workflow can't be restarted. You need to submit the request again
+8.Awaiting Input:- when workflow requires manual intervations or input.
