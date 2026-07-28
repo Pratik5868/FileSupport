@@ -1,0 +1,45 @@
+## Steps to configure the AWS CloudFront:
+
+### Part A: Bucket Creation and Object Deployment:
+- Step1: Login to the AWS Console using your credentials.
+- Step2: Search for the AWS S3 service and select it. 
+- Step3: Further you will be prompted to the AWS S3 dashboard.
+- Step4: Click on the create bucket and enter the details as below:
+	1. General Configuration:
+		- Bucket type: General purpose
+		- Bucket namespace: Account Regional namespace (recommended)
+		- Bucket name: mybucketwebsite
+	2. Object Ownership: Select ACLs diabled.. (Note: This option is use to create the private bucket)
+	3. Block public access settings for this bucket: Select the Block all public access.
+	4. Bucket versioning: disabled
+	5. Tags: Skip it.
+	6. Default encryption:  
+		- Encryption type: Server-side encryption with Amazon S3 managed keys (SSE-S3)
+		- Bucket Key: Enable
+	7. Advance settings: Skip it.
+- Step5: Finally click on the `Create bucket`.
+- Step6: Once the object is created. Download the sample index.html webste file and upload it as object in the bucket you created. And click on `upload`. 
+	- Further if you try to access the website from the object url of the index.html file you uploaded then you will get access denied as it is bucket and object both are private.
+	
+### CloudFront service configuration:
+- Step1: Login to the AWS Console using your credentials.
+- Step2: Search for the CloudFront service and select it. 
+- Step3: Further you will be prompted to the CloudFront dashboard.	
+- Step4: Now on the dashboard you will be prompted to create the `CloudFront Distribution`. So click on the `Create the CloudFront Distribution`.
+	- ***Note:*** 
+		- `Distribution` has to be created first.
+		- An Amazon CloudFront distribution is the core configuration setting that tells the Amazon CloudFront service where to get your original content, how to track and manage its delivery, and how to route requests from your users. It acts as the bridge between your backend server and the global network of edge locations.
+- Step5: Further you will get prompted to the distribution configuration page. Enter the details as below:
+	1. Get started:Distribution options:
+		- Distribution name: mydistribution
+		- Description-optional: skip it
+	2. Domain:
+		- Route 53 managed domain - optional: skip it.
+	3. Tags: Add the tags if you require, else skip it.
+	- Click on Next
+	4. Specify origin:
+		- Origin type: Select Amazon S3
+		- Origin: 
+			- S3 Origin: Select Browse S3 bucket name and select from the list.
+		- Origin path-optional: skip it.
+		
